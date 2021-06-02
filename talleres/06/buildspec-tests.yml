@@ -2,10 +2,15 @@ version: 0.2
 
 phases:
   install:
+    runtime-versions:
+    python:3.7
     # Definir el runtime adecuado
   pre_build:
     commands:
       - echo Instalar las dependencias de Python
+      - cd backend
+      - pip install -r requirements.txt
   build:
     commands:
       - echo Ejecutar comando de pruebas pytest
+      - pytest backend/tests/app.py
